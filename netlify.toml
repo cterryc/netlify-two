@@ -5,7 +5,16 @@ functions = "netlify/functions"
 
 # Configuración de funciones
 [functions]
-external_node_modules = ["express", "sequelize", "pg", "pg-hstore"]
+external_node_modules = [
+    "express",
+    "sequelize",
+    "pg",
+    "pg-hstore",
+    "morgan",
+    "cors",
+    "dotenv",
+    "serverless-http",
+]
 node_bundler = "esbuild"
 included_files = ["node_modules/pg/**/*"]
 

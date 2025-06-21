@@ -3,12 +3,17 @@
 [build]
 functions = "netlify/functions"
 
-# Configuración adicional para las funciones
+# Configuración de funciones
 [functions]
-external_node_modules = ["express"]
+external_node_modules = ["express", "sequelize", "pg", "pg-hstore"]
 node_bundler = "esbuild"
+included_files = ["node_modules/pg/**/*"]
 
-# Tu configuración de redirects DEBE mantenerse
+# Configuración de Node.js
+[functions.environment]
+NODE_OPTIONS = "--max-old-space-size=1024"
+
+# Redirects para tu API
 [[redirects]]
 from = "/api/*"
 to = "/.netlify/functions/index/:splat"

@@ -1,0 +1,15 @@
+# netlify.toml (en la raíz del proyecto)
+
+[build]
+functions = "netlify/functions"
+
+# Configuración adicional para las funciones
+[functions]
+external_node_modules = ["express"]
+node_bundler = "esbuild"
+
+# Tu configuración de redirects DEBE mantenerse
+[[redirects]]
+from = "/api/*"
+to = "/.netlify/functions/index/:splat"
+status = 200
